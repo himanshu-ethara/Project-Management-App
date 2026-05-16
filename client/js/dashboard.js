@@ -17,7 +17,7 @@ const Dashboard = (() => {
   function skeletonHTML() {
     return `
       <div class="stats-grid">
-        ${Array(4).fill('<div class="stat-card skeleton skel-card"></div>').join('')}
+        ${Array(5).fill('<div class="stat-card skeleton skel-card"></div>').join('')}
       </div>
       <div class="dash-grid">
         <div class="dash-card skeleton" style="height:200px"></div>
@@ -38,6 +38,7 @@ const Dashboard = (() => {
       <div class="stats-grid">
         ${statCard('Total Projects', stats.totalProjects, 'purple', '📁', 'You are a member of')}
         ${statCard('All Tasks', stats.totalTasks, 'green', '✅', 'Across all your projects')}
+        ${statCard('Team Members', stats.totalMembers, 'blue', '👥', 'Total unique collaborators')}
         ${statCard('My Tasks', stats.myTasks, 'amber', '👤', 'Assigned to you')}
         ${statCard('Overdue', stats.overdueTasks, 'red', '⚠️', 'Past due date, not done')}
       </div>

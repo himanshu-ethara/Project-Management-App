@@ -32,6 +32,14 @@ const getDashboard = async (req, res, next) => {
       }),
     ]);
 
+    // Distinct members across these projects
+    const uniqueMembers = await prisma.projectMember.findMany({
+      where: { projectId: { in: projectIds } },
+      select: { userId: true },
+      distinct: ['userId'],
+    });
+    const totalMembers = uniqueMembers.length;
+
     // Status breakdown
     const statusBreakdown = await prisma.task.groupBy({
       by: ['status'],
@@ -76,6 +84,7 @@ const getDashboard = async (req, res, next) => {
       stats: {
         totalProjects: projectIds.length,
         totalTasks: allTasks,
+        totalMembers,
         myTasks,
         overdueTasks,
       },

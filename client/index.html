@@ -64,6 +64,15 @@
               <label for="reg-password">Password <span class="hint">(min. 6 chars)</span></label>
               <input id="reg-password" type="password" placeholder="••••••••" autocomplete="new-password" required />
             </div>
+            <div class="field-group">
+              <label>Select Role</label>
+              <div class="role-selector">
+                <input type="radio" id="role-member" name="reg-role" value="MEMBER" checked />
+                <label for="role-member" class="role-btn">Member</label>
+                <input type="radio" id="role-admin" name="reg-role" value="ADMIN" />
+                <label for="role-admin" class="role-btn">Admin</label>
+              </div>
+            </div>
             <button type="submit" class="btn btn-primary btn-full" id="register-btn">Create Account</button>
           </form>
           <p class="auth-switch">Already have an account? <a href="#" id="go-login">Sign in</a></p>

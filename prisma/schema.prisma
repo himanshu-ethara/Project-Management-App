@@ -15,6 +15,7 @@ model User {
   name      String
   email     String   @unique
   password  String
+  role      GlobalRole @default(MEMBER)
   createdAt DateTime @default(now())
 
   ownedProjects   Project[]       @relation("ProjectOwner")
@@ -68,6 +69,11 @@ model Task {
 }
 
 enum MemberRole {
+  ADMIN
+  MEMBER
+}
+
+enum GlobalRole {
   ADMIN
   MEMBER
 }

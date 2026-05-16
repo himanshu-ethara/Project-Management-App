@@ -53,6 +53,8 @@ const Auth = (() => {
     const name = document.getElementById('reg-name').value.trim();
     const email = document.getElementById('reg-email').value.trim();
     const password = document.getElementById('reg-password').value;
+    const roleRadio = document.querySelector('input[name="reg-role"]:checked');
+    const role = roleRadio ? roleRadio.value : 'MEMBER';
 
     if (!name || !email || !password) return App.toast('Please fill all fields.', 'error');
     if (password.length < 6) return App.toast('Password must be at least 6 characters.', 'error');
@@ -60,7 +62,7 @@ const Auth = (() => {
     btn.disabled = true;
     btn.textContent = 'Creating account…';
     try {
-      const { token, user } = await api.auth.register({ name, email, password });
+      const { token, user } = await api.auth.register({ name, email, password, role });
       localStorage.setItem('tf_token', token);
       localStorage.setItem('tf_user', JSON.stringify(user));
       App.startApp(user);
