@@ -6,8 +6,8 @@ A full-stack project management application with **role-based access control**, 
 
 ## 🚀 Live Demo
 
-> **Live URL:** *(Add your Railway URL after deployment)*  
-> **GitHub:** *(Add your repo link)*
+> **Live URL:** *(https://project-management-app-production-c753.up.railway.app/)*  
+> **GitHub:** *(https://github.com/himanshu-ethara/Project-Management-App)*
 
 ---
 
